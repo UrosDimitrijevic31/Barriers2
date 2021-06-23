@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/addLocation"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:background="@drawable/dashed"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewLocationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location name"
+                android:textColor="@color/gray_500"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/textViewLocation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/candal"
+                android:text="Home"
+                android:textColor="@color/blue_dark"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLocationLabel" />
+
+
+            <Button
+                android:id="@+id/button_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginBottom="1dp"
+                android:text="@string/edit"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_delete"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLocationLabel" />
+
+            <Button
+                android:id="@+id/button_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginBottom="1dp"
+                android:text="@string/delete"
+                android:textSize="12sp"
+                app:backgroundTint="@color/blue_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button_edit"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLocationLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
