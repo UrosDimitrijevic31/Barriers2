@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -31,6 +32,8 @@ public class FirstFragment extends Fragment implements MainLocationListAdapter.H
     private RecyclerView recyclerView;
     private MainLocationListAdapter mainLocationListAdapter;
     private Location locationForEdit;
+    private SecondFragment SecondFragment;
+//    private Object SecondFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -75,7 +78,6 @@ public class FirstFragment extends Fragment implements MainLocationListAdapter.H
             @Override
             public void onChanged(List<Location> locations) {
                 if(locations == null) {
-                    System.out.println(locations + "ovo su lokacije");
                     noResultTextView.setVisibility(View.VISIBLE); //ispise poruku da je prazna lista (nema parking lokacija)
                     recyclerView.setVisibility(View.GONE); //da nema liste itema
                 } else {
@@ -107,10 +109,19 @@ public class FirstFragment extends Fragment implements MainLocationListAdapter.H
 
     @Override
     public void itemClick(Location location) {
-          Bundle bundle = new Bundle();
-          bundle.putString("locationId", location.uid +"");
-          SecondFragment fr = new SecondFragment();
-          fr.setArguments(bundle);
+
+
+//          Bundle bundle = new Bundle();
+//          bundle.putInt("locationId", location.uid);
+//          SecondFragment fr = new SecondFragment();
+//          fr.setArguments(bundle);
+//
+//        getParentFragmentManager().beginTransaction()
+//                  .replace(R.id.content, SecondFragment)
+//                  .commit();
+
+//          NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_SecondFragment);
+
 
 //        Intent intent = new Intent(getActivity(), SecondFragment.class);
 //        intent.putExtra("location_id", location.uid);
