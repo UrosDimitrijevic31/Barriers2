@@ -25,7 +25,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class SettingsActivity extends AppCompatActivity implements LocationDialog.ExampleDialogListener, BarriersDialog.ExampleDialogListenerBarrier {
+public class SettingsActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private TabLayout tabLayout;
@@ -42,22 +42,12 @@ public class SettingsActivity extends AppCompatActivity implements LocationDialo
         viewPager = findViewById(R.id.viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
-
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         pageAdapter.addFragment(new LocationFragment(), "Location");
         pageAdapter.addFragment(new BarriersFragment(), "barriers");
         viewPager.setAdapter(pageAdapter);
-
     }
 
-    @Override
-    public void applyTexts(String name, String ipAddress, String description) {
-    }
-
-    @Override
-    public void applyTextsBarrier(String name, String ipAddress, String location) {
-
-    }
 }
 
 
