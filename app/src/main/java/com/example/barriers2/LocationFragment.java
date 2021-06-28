@@ -97,7 +97,7 @@ public class LocationFragment extends Fragment implements LocationListAdapter.Ha
         if(isForEdit) {
             createButton.setText("Update");
             editName.setText(locationForEdit.locationName);
-            editIpAddress.setText(locationForEdit.lcoationIP);
+            editIpAddress.setText(locationForEdit.locationIP);
             editLocationDescription.setText(locationForEdit.description);
         }
 
@@ -135,7 +135,7 @@ public class LocationFragment extends Fragment implements LocationListAdapter.Ha
 
                 if(isForEdit) {
                     locationForEdit.locationName = name;
-                    locationForEdit.lcoationIP = ipAddress;
+                    locationForEdit.locationIP = ipAddress;
                     locationForEdit.description = description;
                     viewModel.updateLocation(locationForEdit);
                 } else {

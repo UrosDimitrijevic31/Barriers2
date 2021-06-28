@@ -35,10 +35,10 @@ public class LocationFragmentViewModel extends AndroidViewModel {
         }
     }
 
-    public void insertLocation(String locName, String lcoationIP, String description) {
+    public void insertLocation(String locName, String locationIP, String description) {
         Location location = new Location();
         location.locationName = locName;
-        location.lcoationIP = lcoationIP;
+        location.locationIP = locationIP;
         location.description = description;
 
         appDatabase.parkingDao().insertLocation(location);

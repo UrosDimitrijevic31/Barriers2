@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.barriers2.db.AppDatabase;
 import com.example.barriers2.db.Barriers;
 import com.example.barriers2.db.Location;
 import com.example.barriers2.viewmodel.BarriersFragmentViewModel;
@@ -34,6 +35,7 @@ public class BarriersFragment extends Fragment implements BarriersListAdapter.Ha
     private RecyclerView recyclerView;
     private BarriersListAdapter barriersListAdapter;
     private Barriers barrierForEdit;
+    private AppDatabase appDatabase;
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
@@ -121,13 +123,14 @@ public class BarriersFragment extends Fragment implements BarriersListAdapter.Ha
                     Toast.makeText(getContext(), "Enter barrier name", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                String locationName = editBarrierLocationName.getText().toString();
-                if(TextUtils.isEmpty(locationName)) {
-                    //TREBA DA NE IZLAZI IZ DIALOGA A DA PRIKAZE PORUKU SREDITI ! ! ! !
-                    Toast.makeText(getContext(), "Enter location name", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//
+                String locNametext = editBarrierLocationName.getText().toString();
+                int locationName = Integer.parseInt(locNametext);
+//                if(TextUtils.isEmpty(locationName)) {
+//                    //TREBA DA NE IZLAZI IZ DIALOGA A DA PRIKAZE PORUKU SREDITI ! ! ! !
+//                    Toast.makeText(getContext(), "Enter location name", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
 
                 String ipAddress = editIpAddress.getText().toString();
                 if(TextUtils.isEmpty(ipAddress)) {
@@ -145,11 +148,14 @@ public class BarriersFragment extends Fragment implements BarriersListAdapter.Ha
 
                 if(isForEdit) {
                     barrierForEdit.barriersName = barrierName;
+
                     barrierForEdit.locationId = locationName; //treba id
+
                     barrierForEdit.barrierIP = ipAddress;
                     barrierForEdit.description = description;
                     viewModel.updateBarrier(barrierForEdit);
                 } else {
+
                     viewModel.insertBarrier(barrierName, locationName, ipAddress, description );
                 }
                 //here we need to call view model

@@ -13,6 +13,10 @@ public interface ParkingDao {
     @Query("Select * from Location")
     List<Location> getAllLocationList();
 
+    @Query("Select uid from Location")
+    List<Location> getAllLocationListId();
+
+
     @Insert
     void insertLocation(Location locations);
 

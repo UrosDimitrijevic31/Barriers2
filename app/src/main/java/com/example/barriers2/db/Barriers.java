@@ -20,7 +20,7 @@ public class Barriers {
     public String barrierLocationLabel = "Location name";
 
     @ColumnInfo( name = "locationId")
-    public String locationId; //*** to je lokacija na kojoj se nalazi barijera, treba da bude ubacen id
+    public int locationId;
 
     @ColumnInfo( name = "barrierIP" )
     public String barrierIP;

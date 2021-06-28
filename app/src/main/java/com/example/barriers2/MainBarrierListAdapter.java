@@ -10,88 +10,85 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.barriers2.db.Barriers;
 import com.example.barriers2.db.Location;
 
 import java.util.List;
 
-public class MainBarrierListAdapter extends RecyclerView.Adapter<MainBarrierListAdapter.LocationViewHolder> {
-    private List<Location> locationList;
+public class MainBarrierListAdapter extends RecyclerView.Adapter<MainBarrierListAdapter.BarriersViewHolder> {
+    private List<Barriers> barrierList;
     private Context context;
-    private HandleLocationClick clickListener;
+    private HandleBarrierClick clickListener;
 
-    public MainBarrierListAdapter(Context context, HandleLocationClick clickListener) {
+    public MainBarrierListAdapter(Context context, HandleBarrierClick clickListener) {
         this.context = context;
         this.clickListener = clickListener;
     }
 
-    public void setLocationList(List<Location> locationList) {
-        this.locationList = locationList;
+    public void setbarrierList(List<Barriers> barrierList) {
+        this.barrierList = barrierList;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public MainBarrierListAdapter.LocationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.location_item, parent,false);
-        return new LocationViewHolder(view);
+    public MainBarrierListAdapter.BarriersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.barrier_item_main, parent,false);
+        return new BarriersViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LocationViewHolder holder, int position) { //postion - je pozicija elementa u listi
-        holder.textViewLocationLabel.setText(this.locationList.get(position).locationLabel);
-        holder.textViewLocation.setText(this.locationList.get(position).locationName);
+    public void onBindViewHolder(@NonNull BarriersViewHolder holder, int position) { //postion - je pozicija elementa u listi
+        holder.textViewBarrier.setText(this.barrierList.get(position).barriersName);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.itemClick(locationList.get(position));
+                clickListener.itemClick(barrierList.get(position));
             }
         });
 
-        holder.button_edit.setOnClickListener(new View.OnClickListener() {
+        holder.open.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.editItem(locationList.get(position));
+//                clickListener.editItem(barrierList.get(position));
             }
         });
 
-        holder.button_delete.setOnClickListener(new View.OnClickListener() {
+        holder.close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.removeItem(locationList.get(position));
+//                clickListener.removeItem(barrierList.get(position));
             }
         });
     }
-
 
     @Override
     public int getItemCount() {
-        if(locationList == null || locationList.size() == 0) {
+        if(barrierList == null || barrierList.size() == 0) {
             return 0;
         }else {
-            return locationList.size();
+            return barrierList.size();
         }
     }
 
-    public class LocationViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewLocationLabel;
-        TextView textViewLocation;
-        Button button_edit;
-        Button button_delete;
+    public class BarriersViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewBarrier;
+        Button open;
+        Button close;
 
-        public LocationViewHolder(View view) {
+        public BarriersViewHolder(View view) {
             super(view);
-            textViewLocationLabel = itemView.findViewById(R.id.textViewLocationLabel);
-            textViewLocation = itemView.findViewById(R.id.textViewLocation);
-            button_edit = itemView.findViewById(R.id.button_edit);
-            button_delete = itemView.findViewById(R.id.button_delete);
+            textViewBarrier = itemView.findViewById(R.id.barrier_name_main);
+            open = itemView.findViewById(R.id.open);
+            close = itemView.findViewById(R.id.close);
         }
     }
 
-    public interface HandleLocationClick {
-        void itemClick(Location location);
-        void removeItem(Location location);
-        void editItem(Location location);
+    public interface HandleBarrierClick {
+        void itemClick(Barriers barrier);
+//        void removeItem(Barriers barrier);
+//        void editItem(Barriers barrier);
     }
 
 }

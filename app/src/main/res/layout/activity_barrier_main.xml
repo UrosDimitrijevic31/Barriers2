@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_light"
-    tools:context=".FirstFragment">
+    tools:context=".BarrierMainActivity">
 
     <TextView
-        android:id="@+id/mainHeaderText"
+        android:id="@+id/mainHeaderTextBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/candal"
-        android:text="Pick parking location"
+        android:text="Pick barrier"
         android:textColor="@color/white"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_view_manin_location"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_manin_barrier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.195" />
-    
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_manin_location"
+        android:id="@+id/recycler_view_manin_barrier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
@@ -33,13 +32,13 @@
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainHeaderText" />
+        app:layout_constraintTop_toBottomOf="@+id/mainHeaderTextBarrier" />
 
     <TextView
-        android:id="@+id/noResultMain"
+        android:id="@+id/noResultSecondBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You don't have any location"
+        android:text="You don't have any barrier"
         android:textSize="22sp"
         android:textStyle="bold"
         android:visibility="gone"

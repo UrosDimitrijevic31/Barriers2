@@ -109,24 +109,10 @@ public class FirstFragment extends Fragment implements MainLocationListAdapter.H
 
     @Override
     public void itemClick(Location location) {
+        Intent intent = new Intent(getActivity(), BarrierMainActivity.class);
+        intent.putExtra("location_id", location.uid);
+        intent.putExtra("location_name", location.locationName);
 
-
-//          Bundle bundle = new Bundle();
-//          bundle.putInt("locationId", location.uid);
-//          SecondFragment fr = new SecondFragment();
-//          fr.setArguments(bundle);
-//
-//        getParentFragmentManager().beginTransaction()
-//                  .replace(R.id.content, SecondFragment)
-//                  .commit();
-
-//          NavHostFragment.findNavController(FirstFragment.this).navigate(R.id.action_FirstFragment_to_SecondFragment);
-
-
-//        Intent intent = new Intent(getActivity(), SecondFragment.class);
-//        intent.putExtra("location_id", location.uid);
-//        intent.putExtra("category_name", location.locationName);
-//
-//        startActivity(intent);
+        startActivity(intent);
     }
 }

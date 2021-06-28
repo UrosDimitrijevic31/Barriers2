@@ -17,7 +17,7 @@ public class Location {
     public String locationName;
 
     @ColumnInfo( name = "locationIP")
-    public String lcoationIP;
+    public String locationIP;
 
     @ColumnInfo( name = "description")
     public String description;

@@ -33,8 +33,6 @@ public class SecondFragment extends Fragment {
         noResultTextView = view.findViewById(R.id.noResultSecondBarrier);
         recyclerView = view.findViewById(R.id.recycler_view_manin_barrier);
 
-
-
         return view;
     }
 
