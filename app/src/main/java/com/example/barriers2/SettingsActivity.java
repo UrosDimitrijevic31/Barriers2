@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.barriers2.databinding.ActivityMainBinding;
+import com.example.barriers2.db.AppDatabase;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
@@ -36,6 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_settings);
+
 
         //tabovi
         tabLayout = findViewById(R.id.tabBar);

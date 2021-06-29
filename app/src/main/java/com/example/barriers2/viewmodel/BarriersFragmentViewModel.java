@@ -51,8 +51,7 @@ public class BarriersFragmentViewModel extends AndroidViewModel {
         Barriers barrier = new Barriers();
         barrier.barriersName = barName;
 
-        List<Location> id = appDatabase.parkingDao().getAllLocationListId();
-        barrier.locationId = id.get(0).uid;
+        barrier.locationId = locationId;
 
         barrier.barrierIP = ip;
         barrier.description = description;

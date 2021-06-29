@@ -37,7 +37,6 @@ public class BarrierMainActivity extends AppCompatActivity implements MainBarrie
         initRecyclerView();
         initViewModel();
         viewModel.getAllBarriersList(location_id);
-
     }
 
     private void initViewModel() {
